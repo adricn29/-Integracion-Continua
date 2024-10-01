@@ -1,7 +1,9 @@
+// index.js
 function helloWorld() {
     return "Hola, Mundo!";
 }
 
-module.exports = { helloWorld }; 
+module.exports = { helloWorld };
 
 console.log(helloWorld());
+
