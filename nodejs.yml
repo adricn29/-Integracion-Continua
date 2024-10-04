@@ -1,22 +1,33 @@
-name: Node.js CI
+name: Integracion Continua
 
 on:
   push:
     branches:
-      - main
-      - dev
+      - main 
+      - desarrollo 
+  pull_request:
+    branches:
+      - main  
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14' # Cambia a la versión que necesites
-    - run: |
-        npm install
-        node test.js # Ejecutar las pruebas
+      # Paso 1: Clonar el repositorio
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Paso 2: Configurar Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # Especifica la versión de Node.js que deseas usar
+
+      # Paso 3: Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # Paso 4: Ejecutar pruebas
+      - name: Run tests
+        run: npm test

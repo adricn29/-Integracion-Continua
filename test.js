@@ -1,12 +1,5 @@
-const { helloWorld } = require('./index');
+const suma = require('./sum');
 
-function testHelloWorld() {
-    const result = helloWorld();
-    if (result === "Hola, Mundo!") {
-        console.log("Prueba pasada: helloWorld() devuelve 'Hola, Mundo!'");
-    } else {
-        console.error("Prueba fallida: helloWorld() no devuelve 'Hola, Mundo!'");
-    }
-}
-
-testHelloWorld();
+test('suma 1 + 2 para ser igual a 3', () => {
+    expect(suma(1, 2)).toBe(3);
+});
